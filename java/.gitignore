@@ -1,0 +1,50 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven artifacts
+target
+jacoco.exec
+
+# IDE Configuration
+.classpath
+.project
+.settings
+.idea
+*.iml
+atlassian-ide-plugin.xml
+
+# Bamboo files
+build-number.txt
+
+# Node artifacts
+node
+node_modules
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage
+build
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+data
+
+.DS_Store
+
+# for testing afts
+testng-dev.xml

@@ -1,0 +1,37 @@
+{
+  "name": "todo-ui",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1",
+    "react-scripts": "1.0.14"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "body-parser": "^1.18.2",
+    "bootstrap": "3.3.7",
+    "isomorphic-fetch": "2.2.1",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.12.2",
+    "react": "16.0.0",
+    "react-bootstrap": "0.31.3",
+    "react-dom": "16.0.0",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "redux-actions": "2.2.1",
+    "redux-form": "7.1.1",
+    "redux-promise": "0.5.3",
+    "redux-thunk": "2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "nodemon scripts/server.js"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
+  }
+}

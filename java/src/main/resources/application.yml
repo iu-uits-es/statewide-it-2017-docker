@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    hibernate.ddl-auto: update
+spring.mvc.static-path-pattern: /static/**
+spring.resources.static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/
