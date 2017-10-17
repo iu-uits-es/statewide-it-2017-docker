@@ -31,7 +31,7 @@ const TodoList = ({ onCloseForm, onCompleteTodo, onCreateTodo, onOpenForm, showF
     return (
         <Row>
             <Col md={6} mdOffset={3}>
-                <Panel header={<TodoHeader onCloseForm={onCloseForm} onCreateTodo={onCreateTodo} onOpenForm={onOpenForm} showForm={showForm} />} bsStyle="error">
+                <Panel header={<TodoHeader onCloseForm={onCloseForm} onCreateTodo={onCreateTodo} onOpenForm={onOpenForm} showForm={showForm} />} bsStyle="danger">
                     <ListGroup fill>
                         {formattedTodos}
                     </ListGroup>
