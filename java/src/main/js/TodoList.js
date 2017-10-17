@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, FormControl, ListGroup, ListGroupItem, Panel, Row } from 'react-bootstrap';
+import { Button, Col, ListGroup, ListGroupItem, Panel, Row } from 'react-bootstrap';
 
 import TodoForm from './TodoForm';
 

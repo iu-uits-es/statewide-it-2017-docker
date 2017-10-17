@@ -45,7 +45,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-MongoClient.connect('mongodb://localhost:27017/todoapp', (err, database) => {
+MongoClient.connect(process.env.MONGO_URL, (err, database) => {
   db = database;
   app.listen(3000, function(err) {
     if (err) {
