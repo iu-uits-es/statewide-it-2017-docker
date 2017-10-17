@@ -34,6 +34,19 @@ body {
 	font-weight: inherit;
 }
 
+.reveal .slides .header {
+  position:absolute;
+  top: -50%;
+  left: -50%;
+}
+.reveal .slides .footer {
+  position: absolute;
+  bottom: 10%;
+  left: 0%;
+  color: #b7b7b7;
+  text-transform: uppercase;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -350,3 +363,17 @@ body {
 	}
 
 
+.big-image {
+    height: 100%;
+    width: 100%;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.textbox {
+    background: rgba(0, 0, 0, 0.60);
+    color: white !important;
+    padding: 4px 8px;
+    margin: 0;
+}

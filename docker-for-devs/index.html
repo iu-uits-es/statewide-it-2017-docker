@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Docker for Developers</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/swit17.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -22,10 +22,99 @@
 		</script>
 	</head>
 	<body>
+		<div id="banner" style="background-color: #228dbb; width: 100%; height: 8%;"></div>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background-color="#e6e6e6">
+				  <h2 style="margin-top: 1.5rem; margin-bottom: 3em; text-align: left">Docker for Developers</h2>
+				  <div style="float: left; text-align: left; margin-top: 2.5em; color: #7f7f7f">
+					<strong>James Bennett</strong><br />Enterprise Systems, UITS
+				  </div>
+				  <div style="width: 40%; float: right;">
+				    <img src="images/swit-17-logo.png" style="background: inherit; border: 0; box-shadow: none;" />
+				  </div>
+				</section>
+				<section data-background-image="images/ask-questions.png"></section>
+				<section data-background-image="images/dominoes_launch_fail.gif"></section>
+				<section>
+					<section data-background-image="images/why-are-we-here.jpg"></section>
+					<section>
+					  <h3>Agenda</h3>
+					  <ul>
+					    <li>Docker Basics for Development</li>
+						<li>Exercise 1 (20 minutes)</li>
+						<li>Docker Services and Stacks</li>
+						<li>Exercise 2 (20 minutes)</li>
+						<li>Advanced Service Usage</li>
+						<li>Deploying to an External Swarm</li>
+					  </ul>
+					</section>
+				</section>
+				<section>
+					<section data-background-image="images/laptop.jpg">
+						<h1 class="textbox">Development Basics</h1>
+					</section>
+					<section>
+						<h3>Uses in Development</h3>
+						<ul>
+							<li>Speeds up installation process</li>
+							<li>Managing application dependencies</li>
+							<li>Using command-line tools</li>
+							<li>Repeatable builds</li>
+							<li>Running/debugging an application</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Demo 1: Using Docker during Development</h3>
+						<img src="images/docker-demo-1.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
+					</section>
+					<section>
+						<h3>Building an Image</h3>
+						<img src="images/docker-image.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
+					</section>
+					<section>
+						<h3>Image Best Practices</h3>
+						<ul>
+							<li>Make it small!</li>
+							<li>Build fast</li>
+							<li>Single responsibility principle</li>
+							<li>Don't run as root</li>
+							<li>Entrypoints should be flexible</li>
+							<li>Use health checks</li>
+							<li>Expose ports & volumes</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Todo Application</h3>
+						<img src="images/todo-app.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
+					</section>
+					<section>
+						<h3>Multi-stage builds</h3>
+						<img src="images/multi-stage-build.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
+					</section>
+					<section>
+						<h3>Demo 2: Building an image</h3>
+						<img src="images/docker-engine.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
+					</section>
+					<section>
+						<h3>Docker Registry</h3>
+						<div style="clear: both;">
+							<ul style="width: 50%; float: left; margin-top: 100px;">
+								<li>Stores Docker images</li>
+								<li>Provides a library of official images</li>
+								<li>Can store your own images</li>
+							</ul>
+							<img src="images/docker-registry.png" style="width: 45%; float: right; background: none; border: none; box-shadow: none;">
+						</div>
+					</section>
+				</section>
+				<section data-background-image="images/container-load.jpg"></section>
+				<section data-background-image="images/exercise-1.jpg"></section>
+				<section data-background-image="images/container-stack.jpg"></section>
+				<section data-background-image="images/exercise-2.jpg"></section>
+				<section data-background-image="images/complex-container-stack.jpg"></section>
+				<section data-background-image="images/container-ship.jpg"></section>
+				<div id="footer" class="footer" style="display: none; font-size: 60%;">Statewide IT Conference 2017</div>
 			</div>
 		</div>
 
@@ -44,6 +133,18 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				if(event.indexh === 0 && event.indexv == 0) {
+					document.getElementById('banner').style.display = 'block';
+					document.getElementById('footer').style.display = 'none';
+				} else if(event.indexv == 0) {
+					document.getElementById('banner').style.display = 'none';
+					document.getElementById('footer').style.display = 'none';
+				} else {
+					document.getElementById('banner').style.display = 'none';
+					document.getElementById('footer').style.display = 'block';
+				}
+			} );
 		</script>
 	</body>
 </html>
