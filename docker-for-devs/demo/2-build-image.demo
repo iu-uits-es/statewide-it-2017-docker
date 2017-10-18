@@ -59,7 +59,7 @@ tmux send-keys "docker container run --rm todoapp ls -la" Enter
 tmux send-keys "docker container run --rm todoapp ls -la target" Enter
 
 tmux send-keys "emacs Dockerfile" Enter M-x "end-of-buffer" Enter
-tmux send-keys Enter "CMD java -jar /usr/src/app/todo-app.jar" Enter
+tmux send-keys Enter "CMD java -jar /usr/src/app/target/todo-app.jar" Enter
 tmux send-keys "EXPOSE 8080" Enter
 tmux send-keys C-x C-s C-x C-c
 

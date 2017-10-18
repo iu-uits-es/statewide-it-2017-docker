@@ -16,6 +16,7 @@ tmux set -g status off
 #tmux send -t demosession "alias dockert='winpty docker'" Enter
 #tmux send -t demosession "alias dockert-machine='winpty docker-machine'" Enter
 tmux send -t demosession "alias pwd='cygpath -am .'" Enter
+tmux send -t demosession "alias open='cygstart'" Enter
 tmux send-keys -t demosession clear Enter && tmux clear-history
 
 # the one to show on the beamer is called 'DEMO'
