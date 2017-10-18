@@ -1,0 +1,40 @@
+version: '3.3'
+
+services:
+  db:
+    image: "mysql:5.7.20"
+    volumes:
+      - data:/var/lib/mysql
+    networks:
+      backend:
+        aliases:
+          - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: todos
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: changeme
+  app:
+    image: "todoapp"
+    ports:
+      - "8080:8080"
+    networks:
+      - frontend
+      - backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/todos
+      SPRING_DATASOURCE_USERNAME: todo
+      SPRING_DATASOURCE_PASSWORD: changeme
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  frontend:
+    driver: overlay
+  backend:
+    driver: overlay
+    attachable: true
+    driver_opts:
+      encrypted: "true"
