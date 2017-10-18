@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  db:
+    image: "microsoft/mssql-server-linux"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "<password>"
+      ACCEPT_EULA: "Y"
+  app:
+    image: "todoapp"
+    deploy:
+      replicas: 0
+    ports:
+      - "8080:80"
+    environment:
+      - "ConnectionStrings__TodoDb=Server=db;Database=TodoApp;User=sa;Password=<password>"

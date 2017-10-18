@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  db:
+    image: "mongo:3.4.9"
+    ports:
+      - "27017:27017"
+  app:
+    image: "todoapp"
+    deploy:
+      replicas: 3
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: mongodb://db:27017/todoapp
