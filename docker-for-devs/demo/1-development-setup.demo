@@ -1,0 +1,36 @@
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker --version"
+tmux send-keys Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker pull mysql"
+tmux send-keys Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container run -d"
+tmux send-keys " --name todoapp_db"
+tmux send-keys " -p 3306:3306"
+tmux send-keys " -e MYSQL_ROOT_PASSWORD=changeme"
+tmux send-keys " -e MYSQL_DATABASE=todos"
+tmux send-keys " -e MYSQL_USER=todo"
+tmux send-keys " -e MYSQL_PASSWORD=changeme"
+tmux send-keys " mysql"
+tmux send-keys Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container ls -f name=todoapp_db"
+tmux send-keys Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container logs -f todoapp_db"
+tmux send-keys Enter
+tmux send-keys C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container rm -f todoapp_db"
+tmux send-keys Enter
+
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter

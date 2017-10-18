@@ -42,6 +42,7 @@
 					  <h3>Agenda</h3>
 					  <ul>
 					    <li>Docker Basics for Development</li>
+						<li>Building Images</li>
 						<li>Exercise 1 (20 minutes)</li>
 						<li>Docker Services and Stacks</li>
 						<li>Exercise 2 (20 minutes)</li>
@@ -57,8 +58,8 @@
 					<section>
 						<h3>Uses in Development</h3>
 						<ul>
-							<li>Speeds up installation process</li>
-							<li>Managing application dependencies</li>
+							<li>Speeds up bootstrapping process</li>
+							<li>Managing dependent services</li>
 							<li>Using command-line tools</li>
 							<li>Repeatable builds</li>
 							<li>Running/debugging an application</li>
@@ -68,18 +69,25 @@
 						<h3>Demo 1: Using Docker during Development</h3>
 						<img src="images/docker-demo-1.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
 					</section>
+				</section>
+				<section>
+					<section data-background-image="images/container-load.jpg">
+						<h1 class="textbox">Building Images</h1>
+					</section>
 					<section>
-						<h3>Building an Image</h3>
+						<h3>Image Layers</h3>
 						<img src="images/docker-image.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
 					</section>
 					<section>
 						<h3>Image Best Practices</h3>
-						<ul>
+						<ul style="padding-bottom: 2em">
+						    <li>Use .dockerignore</li>
 							<li>Make it small!</li>
-							<li>Build fast</li>
+							<li>Builds fast</li>
 							<li>Single responsibility principle</li>
 							<li>Don't run as root</li>
 							<li>Entrypoints should be flexible</li>
+							<li>Use specific base images</li>
 							<li>Use health checks</li>
 							<li>Expose ports & volumes</li>
 						</ul>
@@ -97,9 +105,14 @@
 						<img src="images/docker-engine.png" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
 					</section>
 					<section>
+						<h3>Exercise 1</h3>
+						<img src="images/programming.jpg" style="width: 30%; background: inherit; border: 0; box-shadow: none;" />
+						<p style="font-size: smaller;">https://goo.gl/QnsmB3</p>
+					</section>
+					<section>
 						<h3>Docker Registry</h3>
 						<div style="clear: both;">
-							<ul style="width: 50%; float: left; margin-top: 100px;">
+							<ul style="width: 50%; float: left; margin-top: 20px;">
 								<li>Stores Docker images</li>
 								<li>Provides a library of official images</li>
 								<li>Can store your own images</li>
@@ -108,10 +121,55 @@
 						</div>
 					</section>
 				</section>
-				<section data-background-image="images/container-load.jpg"></section>
-				<section data-background-image="images/exercise-1.jpg"></section>
-				<section data-background-image="images/container-stack.jpg"></section>
-				<section data-background-image="images/exercise-2.jpg"></section>
+				<section>
+					<section data-background-image="images/multi-container.jpg">
+						<h1 class="textbox">Docker Services & Stacks</h1>
+					</section>
+					<section>
+						<h3>Docker Swarm Mode</h3>
+						<div style="clear: both;">
+							<ul style="width: 50%; float: left; margin-top: 20px;">
+								<li>Links multiple Docker engines</li>
+								<li>Compatible with the Docker API</li>
+								<li>Flexible container scheduling</li>
+							</ul>
+							<img src="images/docker-swarm.png" style="width: 45%; float: right; background: none; border: none; box-shadow: none;">
+						</div>
+					</section>
+					<section>
+						<h3>Docker Services</h3>
+						<div style="clear: both;">
+							<ul style="width: 50%; float: left; margin-top: 20px;">
+								<li>Desired state engine which orchestrates containers</li>
+								<li>Service discovery</li>
+								<li>Service scaling</li>
+								<li>Rolling updates</li>
+							</ul>
+							<img src="images/docker-services.png" style="width: 45%; float: right; background: none; border: none; box-shadow: none;">
+						</div>
+					</section>
+					<section>
+						<h3>Docker Compose</h3>
+						<div style="clear: both;">
+							<ul style="width: 50%; float: left; margin-top: 20px;">
+								<li>Orchestrates creation of services</li>
+								<li>Multiple services composed together are a stack</li>
+								<li>Defined in a YML file</li>
+								<li>Manages volumes and networking</li>
+							</ul>
+							<img src="images/docker-compose.png" style="width: 45%; float: right; background: none; border: none; box-shadow: none;">
+						</div>
+					</section>
+					<section>
+						<h3>Demo 3: Stacks and services</h3>
+						<img src="images/swarmnado.gif" style="width: 50%; background: inherit; border: 0; box-shadow: none;" />
+					</section>
+					<section>
+						<h3>Exercise 2</h3>
+						<img src="images/docker-runtime-demo.png" style="width: 30%; background: inherit; border: 0; box-shadow: none;" />
+						<p style="font-size: smaller;">https://goo.gl/QnsmB3</p>
+					</section>
+				</section>
 				<section data-background-image="images/complex-container-stack.jpg"></section>
 				<section data-background-image="images/container-ship.jpg"></section>
 				<div id="footer" class="footer" style="display: none; font-size: 60%;">Statewide IT Conference 2017</div>

@@ -1,0 +1,72 @@
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "cd ~/projects/statewide-it-2017-docker/java" Enter
+
+tmux send-keys "ls -la" Enter
+tmux send-keys "du -sh *" Enter
+
+tmux send-keys "emacs .dockerignore"
+tmux send-keys Enter
+tmux send-keys "build" Enter "node" Enter "node_modules" Enter "target" Enter
+tmux send-keys C-x C-s C-x C-c
+
+tmux send-keys "emacs Dockerfile" Enter
+tmux send-keys "FROM node:6.11.4 as node-build" Enter
+tmux send-keys "RUN mkdir -p /usr/src/app" Enter
+tmux send-keys "WORKDIR /usr/src/app" Enter
+tmux send-keys "COPY package.json ./" Enter
+tmux send-keys "RUN npm install" Enter Enter
+tmux send-keys C-x C-s C-x C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker build"
+tmux send-keys " -t todoapp"
+tmux send-keys " ."
+tmux send-keys Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container run --rm todoapp ls -la"
+tmux send-keys Enter
+
+tmux send-keys "emacs Dockerfile" Enter M-x "end-of-buffer" Enter
+tmux send-keys "COPY public /usr/src/app/public/" Enter
+tmux send-keys "COPY src /usr/src/app/src/" Enter
+tmux send-keys "RUN npm run build" Enter
+tmux send-keys C-x C-s C-x C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker build -t todoapp ." Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container run --rm todoapp ls -la" Enter
+tmux send-keys "docker container run --rm todoapp ls -la build/" Enter
+
+tmux send-keys "emacs Dockerfile" Enter M-x "end-of-buffer" Enter
+tmux send-keys Enter "FROM maven:3.5.0-jdk-8" Enter
+tmux send-keys "RUN mkdir -p /usr/src/app" Enter
+tmux send-keys "WORKDIR /usr/src/app" Enter
+tmux send-keys "COPY --from=node-build /usr/src/app/build /usr/src/app/build/" Enter
+tmux send-keys "COPY pom.xml /usr/src/app/" Enter
+tmux send-keys "RUN mvn dependency:resolve dependency:resolve-plugins verify --fail-never -s /usr/share/maven/ref/settings-docker.xml" Enter Enter
+tmux send-keys "COPY src /usr/src/app/src/" Enter
+tmux send-keys "RUN mvn package -s /usr/share/maven/ref/settings-docker.xml" Enter
+tmux send-keys C-x C-s C-x C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker build -t todoapp ." Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker container run --rm todoapp ls -la" Enter
+tmux send-keys "docker container run --rm todoapp ls -la target" Enter
+
+tmux send-keys "emacs Dockerfile" Enter M-x "end-of-buffer" Enter
+tmux send-keys Enter "CMD java -jar /usr/src/app/todo-app.jar" Enter
+tmux send-keys "EXPOSE 8080" Enter
+tmux send-keys C-x C-s C-x C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker build -t todoapp ." Enter
+
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
