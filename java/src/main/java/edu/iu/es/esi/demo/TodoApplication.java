@@ -4,6 +4,7 @@ import edu.iu.es.esi.demo.domain.Todo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
@@ -11,6 +12,9 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 @SpringBootApplication
 @EnableCaching
 @EnableJpaRepositories
+@PropertySource(value = {
+        "file:/run/secrets/security.properties",
+}, ignoreResourceNotFound = true)
 public class TodoApplication extends RepositoryRestConfigurerAdapter {
 
     @Override
