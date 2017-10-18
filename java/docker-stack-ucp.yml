@@ -22,7 +22,7 @@ services:
     image: "jwbennet/todoapp-java:mysql"
     deploy:
       labels:
-        - com.docker.ucp.mesh.http.8080=external_route=http://todos2.apps-test.iu.edu,internal_port=8080
+        - com.docker.ucp.mesh.http.8080=external_route=http://todos.apps-test.iu.edu,internal_port=8080
     ports:
       - "8080:8080"
     networks:
