@@ -1,0 +1,52 @@
+tmux send-keys clear Enter && tmux clear-history
+
+tmux send-keys "open https://github.com/iu-uits-es/statewide-it-2017-docker" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \" db:\" -A 8 docker-stack-initial.yml" Enter
+tmux send-keys "docker service ls" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \" db:\" -A 6 docker-stack-db-port.yml" Enter
+tmux send-keys "docker stack deploy -c docker-stack-db-port.yml todoapp" Enter
+tmux send-keys "docker service ls" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "cat docker-stack-dev.yml" Enter
+tmux send-keys "docker stack deploy -c docker-stack.yml"
+tmux send-keys " -c docker-stack-dev.yml todoapp" C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \" db:\" -A 8 docker-stack-volume.yml" Enter
+tmux send-keys "docker stack deploy -c docker-stack-volume.yml todoapp" Enter
+tmux send-keys "docker volume ls" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \"^networks:\" -A 7 docker-stack-networks.yml" Enter
+tmux send-keys "grep \" db:\" -A 10 docker-stack-networks.yml" Enter
+tmux send-keys "grep \" app:\" -A 10 docker-stack-networks.yml" Enter
+tmux send-keys "docker stack deploy -c docker-stack-networks.yml todoapp" Enter
+tmux send-keys "docker network ls" Enter
+tmux send-keys "docker network inspect todoapp_backend" Enter
+tmux send-keys "docker network inspect todoapp_frontend" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \" db:\" -A 13 docker-stack-network-alias.yml" Enter
+tmux send-keys "docker stack deploy -c docker-stack-network-alias.yml todoapp" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \"^secrets:\" -A 4 docker-stack-secrets.yml" Enter
+tmux send-keys "cat security.properties" Enter
+tmux send-keys "cat db_password" Enter
+tmux send-keys "grep \" db:\" -A 16 docker-stack-secrets.yml" Enter
+tmux send-keys "grep \" app:\" -A 9 docker-stack-secrets.yml" Enter
+tmux send-keys "docker stack deploy -c docker-stack-secrets.yml todoapp" Enter
+tmux send-keys "docker secret ls" Enter
+tmux send-keys "docker exec $(docker container ls -qf name=todoapp_app) cat /run/secrets/security.properties" Enter
+
+tmux send-keys "open https://todos.apps-test.iu.edu" Enter
+
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
