@@ -19,12 +19,16 @@ services:
       MYSQL_USER: todo
       MYSQL_PASSWORD_FILE: /run/secrets/db_password
   app:
-    image: "todoapp"
+    image: "jwbennet/todoapp-java:mysql"
+    deploy:
+      labels:
+        - com.docker.ucp.mesh.http.8080=external_route=http://todos2.apps-test.iu.edu,internal_port=8080
     ports:
       - "8080:8080"
     networks:
       - frontend
       - backend
+      - ucp-hrm
     secrets:
       - source: app_security
         target: security.properties
@@ -41,6 +45,9 @@ networks:
     attachable: true
     driver_opts:
       encrypted: "true"
+  ucp-hrm:
+    external:
+      name: ucp-hrm
 
 secrets:
   app_security:

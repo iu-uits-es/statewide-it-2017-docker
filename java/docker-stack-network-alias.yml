@@ -9,6 +9,7 @@ services:
       backend:
         aliases:
           - mysql
+          - db
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: todos
