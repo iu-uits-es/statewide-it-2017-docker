@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Docker for Developers</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/swit17.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div id="banner" style="background-color: #228dbb; width: 100%; height: 8%;"></div>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-color="#e6e6e6">
+				  <h2 style="margin-top: 1.5rem; margin-bottom: 3em; text-align: left">What's New in Docker?</h2>
+				  <div style="float: left; text-align: left; margin-top: .9em; color: #7f7f7f">
+					<p style="font-size: smaller;">https://goo.gl/QnsmB3</p>
+					<strong>James Bennett</strong><br />Enterprise Systems, UITS
+				  </div>
+				  <div style="width: 40%; float: right;">
+				    <img src="images/swit-17-logo.png" style="background: inherit; border: 0; box-shadow: none;" />
+				  </div>
+				</section>
+				<section data-background-image="images/ask-questions.png"></section>
+				<section data-background-image="images/dominoes_launch_fail.gif"></section>
+
+				<section>
+					<h1>Thanks!</h1>
+					<img src="images/thanks.png" style="width:50%; background: none; border: none; box-shadow: none;">
+					<p>James Bennett - jawbenne@iu.edu</p>
+					<p><small><a href="https://github.com/iu-uits-es/statewide-it-2017-docker">https://github.com/iu-uits-es/statewide-it-2017-docker</a></small></p>
+				</section>
+				<div id="footer" class="footer" style="display: none; font-size: 60%;">Statewide IT Conference 2017</div>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				if(event.indexh === 0 && event.indexv == 0) {
+					document.getElementById('banner').style.display = 'block';
+					document.getElementById('footer').style.display = 'none';
+				} else if(event.indexv == 0) {
+					document.getElementById('banner').style.display = 'none';
+					document.getElementById('footer').style.display = 'none';
+				} else {
+					document.getElementById('banner').style.display = 'none';
+					document.getElementById('footer').style.display = 'block';
+				}
+			} );
+		</script>
+	</body>
+</html>
