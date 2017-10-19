@@ -17,6 +17,7 @@ tmux send-keys "docker stack deploy -c docker-stack.yml"
 tmux send-keys " -c docker-stack-dev.yml todoapp" C-c
 
 tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "grep \"^volume:\" -A 2 docker-stack-volume.yml" Enter
 tmux send-keys "grep \" db:\" -A 8 docker-stack-volume.yml" Enter
 tmux send-keys "docker stack deploy -c docker-stack-volume.yml todoapp" Enter
 tmux send-keys "docker volume ls" Enter
@@ -43,8 +44,6 @@ tmux send-keys "grep \" app:\" -A 9 docker-stack-secrets.yml" Enter
 tmux send-keys "docker stack deploy -c docker-stack-secrets.yml todoapp" Enter
 tmux send-keys "docker secret ls" Enter
 tmux send-keys "docker exec $(docker container ls -qf name=todoapp_app) cat /run/secrets/security.properties" Enter
-
-tmux send-keys "open https://todos.apps-test.iu.edu" Enter
 
 tmux send-keys Enter
 tmux send-keys Enter
