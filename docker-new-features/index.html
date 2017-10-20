@@ -37,7 +37,93 @@
 				</section>
 				<section data-background-image="images/ask-questions.png"></section>
 				<section data-background-image="images/dominoes_launch_fail.gif"></section>
-
+				<section>
+					<h2>Docker Editions</h2>
+					<img src="images/docker-editions.png" style="background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Versioning</h2>
+					<img src="images/docker-version-lifecycle.png" style="background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Certification Process</h2>
+					<img src="images/docker-certified.jpg" style="background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Docker Store</h2>
+					<img src="images/docker-store.png" style="background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<img src="images/moby.jpg" style="background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Moby Project</h2>
+					<img src="images/moby-components.png" style="width: 80%; background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Docker for Windows</h2>
+					<img src="images/docker-windows.png" style="background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Docker for Mac</h2>
+					<img src="images/docker-mac.png" style="width: 90%; background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Multi-architecture Support</h2>
+					<ul>
+						<li>x86_64 for Linux and Windows</li>
+						<li>ARM</li>
+						<li>IBM Z (s390x)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Docker Swarm Mode</h2>
+					<div style="clear: both;">
+						<ul style="width: 50%; float: left; margin-top: 20px;">
+							<li>Links multiple Docker engines</li>
+							<li>Compatible with the Docker API</li>
+							<li>Flexible container scheduling</li>
+						</ul>
+						<img src="images/docker-swarm.png" style="width: 45%; float: right; background: none; border: none; box-shadow: none;">
+					</div>
+				</section>
+				<section>
+					<h2>Docker Services</h2>
+					<div style="clear: both;">
+						<ul style="width: 50%; float: left; margin-top: 20px;">
+							<li>Desired state engine which orchestrates containers</li>
+							<li>Service discovery</li>
+							<li>Service scaling</li>
+							<li>Rolling updates</li>
+						</ul>
+						<img src="images/docker-services.png" style="width: 45%; float: right; background: none; border: none; box-shadow: none;">
+					</div>
+				</section>
+				<section>
+					<h3>Demo Time!</h3>
+					<img src="images/docker-demo-1.png" style="width: 60%; background: inherit; border: 0; box-shadow: none;" />
+				</section>
+				<section>
+					<h2>Enterprise Edition</h2>
+					<ul>
+						<li>HTTP Routing Mesh</li>
+						<li>Image security scanning</li>
+						<li>Docker Content Trust & Image Promotion</li>
+						<li>Finer-grained RBAC</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Wrapping up...</h2>
+					<ul>
+						<li>Changes in release schedule & governance</li>
+						<li>Reviewed Swarm Mode and Services</li>
+						<li>Used multi-staged builds</li>
+						<li>Used a Compose file to orchestrate the creation of services</li>
+						<li>Pushed the application to test</li>
+						<li>Walked through a number of deployment scenarios</li>
+						<li>Touched on a few powerful enterprise features</li>
+					</ul>
+				</section>
 				<section>
 					<h1>Thanks!</h1>
 					<img src="images/thanks.png" style="width:50%; background: none; border: none; box-shadow: none;">
@@ -56,6 +142,8 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history: true,
+				controls: false,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
@@ -67,7 +155,7 @@
 				if(event.indexh === 0 && event.indexv == 0) {
 					document.getElementById('banner').style.display = 'block';
 					document.getElementById('footer').style.display = 'none';
-				} else if(event.indexv == 0) {
+				} else if(event.indexh <= 2) {
 					document.getElementById('banner').style.display = 'none';
 					document.getElementById('footer').style.display = 'none';
 				} else {

@@ -1,0 +1,112 @@
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker --version"
+tmux send-keys Enter
+
+tmux send-keys "cd ~/projects/statewide-it-2017-docker/java" Enter
+tmux send-keys "emacs Dockerfile" Enter
+tmux send-keys C-x C-c
+
+tmux send-keys "docker history todoapp"
+tmux send-keys Enter
+
+tmux send-keys "emacs docker-stack.yml" Enter M-x "end-of-buffer" Enter
+tmux send-keys C-x C-c
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker stack deploy"
+tmux send-keys " -c docker-stack.yml"
+tmux send-keys " todoapp"
+tmux send-keys Enter
+
+tmux send-keys "docker stack ls"
+tmux send-keys Enter
+
+tmux send-keys "docker service ls"
+tmux send-keys Enter
+
+tmux send-keys "docker volume ls"
+tmux send-keys Enter
+
+tmux send-keys "docker network ls"
+tmux send-keys Enter
+
+tmux send-keys "docker secret ls"
+tmux send-keys Enter
+
+tmux send-keys "docker service logs -f todoapp_app"
+tmux send-keys Enter
+tmux send-keys C-c
+
+tmux send-keys "open http://localhost:8080" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker node ls"
+tmux send-keys Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "source ~/ucp/env.sh"
+tmux send-keys Enter
+tmux send-keys "env | grep DOCKER" Enter
+
+tmux send-keys "docker node ls"
+tmux send-keys Enter
+
+tmux send-keys "open https://visualizer.apps-test.iu.edu/" Enter
+
+tmux send-keys clear Enter && tmux clear-history
+tmux send-keys "docker stack deploy -c docker-stack.yml todoapp"
+tmux send-keys Enter
+
+tmux send-keys "grep apps-test docker-stack.yml" Enter
+
+tmux send-keys "open https://todos.apps-test.iu.edu/" Enter
+
+tmux send-keys "docker service scale todoapp_app=6"
+tmux send-keys Enter
+
+tmux send-keys "docker service logs -f todoapp_app"
+tmux send-keys Enter
+tmux send-keys C-c
+
+tmux send-keys "docker container rm -f \$(docker container ls -qf name=todoapp_app.4)"
+tmux send-keys Enter
+
+tmux send-keys "docker service update --constraint-add=\"node.labels.zone==iudc\" todoapp_app"
+tmux send-keys Enter
+
+tmux send-keys "docker service update --image=jwbennet/todoapp-java:red todoapp_app"
+tmux send-keys Enter
+
+tmux send-keys "open https://todos.apps-test.iu.edu/" Enter
+
+tmux send-keys "docker service scale todoapp_app=3"
+tmux send-keys Enter
+
+tmux send-keys "docker service update --rollback todoapp_app"
+tmux send-keys Enter
+
+tmux send-keys "open https://todos.apps-test.iu.edu/" Enter
+
+tmux send-keys "docker service update --update-monitor=20s --update-delay=25s todoapp_app"
+tmux send-keys Enter
+tmux send-keys "docker service update --image=jwbennet/todoapp-java:error todoapp_app"
+tmux send-keys Enter
+tmux send-keys "docker service inspect --pretty todoapp_app | grep -A 4 \"^UpdateStatus\""
+tmux send-keys Enter
+
+tmux send-keys "docker service update --rollback todoapp_app"
+tmux send-keys Enter
+
+tmux send-keys "docker service update --update-failure-action=rollback todoapp_app"
+tmux send-keys Enter
+
+tmux send-keys "docker service update --image=jwbennet/todoapp-java:error todoapp_app"
+tmux send-keys Enter
+
+tmux send-keys "docker stack rm todoapp"
+tmux send-keys Enter
+
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
+tmux send-keys Enter
