@@ -6,6 +6,9 @@ This project contains code for the two Docker sessions at Statewide IT 2017.  Th
 * [Slides](https://iu-uits-es.github.io/statewide-it-2017-docker/docker-for-devs/index.html)
 * [Exercises](https://github.com/iu-uits-es/statewide-it-2017-docker/wiki)
 
+## What's New in Docker?
+* [Slides](https://iu-uits-es.github.io/statewide-it-2017-docker/docker-new-features/index.html)
+
 ## Project Branches
 * master - Contains all of the source code for getting started with the exercises for the Docker for Developers workshop.
 * alternate-color - One of the exercises uses this branch to show how to update a project running in Docker.
